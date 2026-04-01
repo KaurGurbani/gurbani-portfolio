@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gurbani Kaur | AI & Automation Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root{
+--text:#0f172a;
+--accent:#4f46e5;
+--accent-soft:#e0e7ff;
+--muted:#64748b;
+}
+
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+color:var(--text);
+background:
+radial-gradient(circle at 12% 18%, rgba(124,58,237,.18), transparent 40%),
+radial-gradient(circle at 88% 82%, rgba(79,70,229,.14), transparent 45%),
+linear-gradient(140deg,#eef2ff,#f8fafc);
+}
+
+.container{
+max-width:1000px;
+margin:60px auto;
+padding:20px;
+}
+
+.card{
+background:rgba(255,255,255,.75);
+backdrop-filter:blur(14px);
+border-radius:22px;
+padding:45px;
+margin-bottom:30px;
+box-shadow:0 25px 60px rgba(0,0,0,.12);
+transition:.3s ease;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.hero{
+display:flex;
+align-items:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.avatar{
+width:155px;
+height:155px;
+border-radius:50%;
+object-fit:cover;
+border:6px solid var(--accent-soft);
+box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+
+.name{
+font-size:2.7rem;
+font-weight:700;
+}
+
+.badge{
+display:inline-block;
+margin-top:8px;
+padding:4px 12px;
+border-radius:20px;
+font-size:.75rem;
+font-weight:600;
+background:rgba(79,70,229,.15);
+color:var(--accent);
+}
+
+.headline{
+font-size:1.1rem;
+margin:12px 0 18px;
+color:var(--accent);
+line-height:1.6;
+max-width:520px;
+}
+
+.contact{
+font-size:.95rem;
+color:var(--muted);
+}
+
+.contact a{
+text-decoration:none;
+color:var(--accent);
+margin-right:10px;
+}
+
+.hero-buttons{
+margin-top:18px;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:10px 22px;
+border-radius:28px;
+font-size:.9rem;
+font-weight:600;
+text-decoration:none;
+transition:.25s ease;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,#4f46e5,#6366f1);
+color:white;
+}
+
+.btn-outline{
+border:1.5px solid var(--accent);
+color:var(--accent);
+}
+
+.section-title{
+font-size:1.45rem;
+font-weight:600;
+margin-bottom:22px;
+position:relative;
+}
+
+.section-title::after{
+content:"";
+position:absolute;
+bottom:-6px;
+left:0;
+width:45px;
+height:3px;
+background:linear-gradient(90deg,#4f46e5,#6366f1);
+border-radius:10px;
+}
+
+.about{
+font-size:1.05rem;
+line-height:1.8;
+color:var(--muted);
+}
+
+.timeline{
+position:relative;
+padding-left:28px;
+border-left:3px solid var(--accent-soft);
+}
+
+.timeline-item{
+margin-bottom:30px;
+position:relative;
+}
+
+.leadership-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:28px;
+}
+
+.leadership-card{
+padding:22px;
+border-radius:16px;
+background:linear-gradient(
+145deg,
+rgba(255,255,255,.7),
+rgba(245,247,255,.6)
+);
+border:1px solid rgba(99,102,241,.18);
+box-shadow:0 12px 28px rgba(0,0,0,.05);
+transition:.25s ease;
+}
+
+.leadership-card:hover{
+transform:translateY(-4px);
+}
+
+.leadership-role{
+font-weight:600;
+font-size:1.05rem;
+margin-bottom:4px;
+}
+
+.leadership-org{
+color:var(--accent);
+font-weight:500;
+margin-bottom:8px;
+}
+
+.timeline-item::before{
+content:"";
+position:absolute;
+left:-37px;
+top:6px;
+width:14px;
+height:14px;
+border-radius:50%;
+background:linear-gradient(135deg,#4f46e5,#6366f1);
+}
+
+.experience-entry{
+display:flex;
+align-items:flex-start;
+gap:18px;
+margin-bottom:28px;
+}
+
+.company-logo{
+width:52px;
+height:52px;
+object-fit:contain;
+border-radius:10px;
+background:white;
+padding:6px;
+box-shadow:0 6px 14px rgba(0,0,0,.08);
+transition:.25s ease;
+}
+
+.company-logo:hover{
+transform:translateY(-3px) scale(1.05);
+}
+
+.experience-content{
+flex:1;
+}
+
+.role{
+font-weight:600;
+font-size:1.08rem;
+}
+
+.company{
+color:var(--accent);
+font-weight:500;
+}
+
+.duration{
+font-size:.9rem;
+color:var(--muted);
+margin-bottom:6px;
+}
+
+.skills-wrapper{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
+}
+
+.skill-card{
+padding:22px;
+border-radius:16px;
+background:linear-gradient(
+145deg,
+rgba(255,255,255,.65),
+rgba(240,245,255,.55)
+);
+border:1px solid rgba(99,102,241,.15);
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+transition:.25s ease;
+}
+
+.skill-card:hover{
+transform:translateY(-4px);
+box-shadow:0 18px 40px rgba(0,0,0,.08);
+}
+
+.skill-title{
+font-size:1rem;
+font-weight:600;
+margin-bottom:14px;
+color:var(--accent);
+}
+
+.skill-list{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.skill-tag{
+padding:6px 12px;
+font-size:.82rem;
+border-radius:999px;
+background:linear-gradient(
+135deg,
+rgba(99,102,241,.18),
+rgba(79,70,229,.12)
+);
+font-weight:500;
+}
+
+
+.pill{
+display:inline-block;
+padding:8px 14px;
+margin:6px 6px 0 0;
+border-radius:20px;
+background:linear-gradient(
+135deg,
+rgba(99,102,241,.15),
+rgba(79,70,229,.12)
+);
+font-size:.85rem;
+font-weight:500;
+}
+
+footer{
+text-align:center;
+margin-top:15px;
+font-size:.85rem;
+color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+
+<div class="card hero">
+
+<img src="profile.jpg" class="avatar">
+
+<div>
+
+<div class="name">Gurbani Kaur</div>
+<div class="badge">DAAD Scholar</div>
+
+<div class="headline">
+Building practical AI & automation solutions at the intersection of technology, business, and user experience.
+</div>
+
+<div class="contact">
+📧 <a href=mailto:"gurbanikaur1702@gmail.com">Gmail</a>
+🔗 <a href="https://www.linkedin.com/in/gurbani-kaur-saluja/" target="_blank">LinkedIn</a>
+</div>
+
+<div class="hero-buttons">
+<a href="Gurbani_Kaur_CV.pdf" class="btn btn-primary">Download CV</a>
+<a href="https://www.linkedin.com/in/gurbani-kaur-saluja/" target="_blank" class="btn btn-outline">Connect on LinkedIn</a>
+</div>
+
+</div>
+</div>
+
+
+<!-- ABOUT -->
+
+<div class="card">
+<div class="section-title">About</div>
+
+<div class="about">
+Information Technology student building AI-driven solutions that are technically strong and meaningful for users and organizations. Experience spans research simulation at GSI Helmholtz, data engineering at Celebal Technologies, and automation-focused digital business development at Applus+ IDIADA. I enjoy working where engineering meets strategy to design scalable, intuitive systems with real-world impact.
+</div>
+</div>
+
+
+<!-- EDUCATION -->
+
+<div class="card">
+<div class="section-title">Education</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="role">B.Tech in Information Technology</div>
+<div class="company">Manipal University Jaipur</div>
+<div class="duration">CGPA: 8.00</div>
+
+<div class="timeline-item">
+<div class="role">High school graduation</div>
+<div class="company">City Montessori School</div>
+<div class="duration">CGPA: 8.95</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- EXPERIENCE (unchanged) -->
+
+<!-- EXPERIENCE -->
+
+<div class="card">
+<div class="section-title">Experience</div>
+
+<div class="experience-entry">
+
+<img src="idiada.jpg" class="company-logo">
+
+<div class="experience-content">
+<div class="role">Digital Business Intern — AI Use Case Team</div>
+<div class="company">Applus+ IDIADA, Spain </div>
+<div class="duration">Jan 2026 – Present · Spain</div>
+<div>
+<p>Designed Generative AI automation workflows reducing manual document validation effort from ~4 hrs/day to 15–20 min/day</p>
+<p>Built enterprise workflow automation pipelines across 15+ departments and multiple data sources, reducing monthly processing effort from 2 days to 20 min</p>
+<p>Translated business requirements into production-oriented GenAI use cases using document-processing and orchestration pipelines</p>
+</div>
+</div>
+
+</div>
+
+
+<div class="experience-entry">
+
+<img src="celebal.jpg" class="company-logo">
+
+<div class="experience-content">
+<div class="role">SQL Developer Intern</div>
+<div class="company">Celebal Technologies</div>
+<div class="duration">Jun 2025 – Aug 2025 · Remote</div>
+<div>
+Built optimized SQL pipelines supporting analytics and structured backend decision workflows.
+</div>
+</div>
+
+</div>
+
+
+<div class="experience-entry">
+
+<img src="gsi.jpg" class="company-logo">
+
+<div class="experience-content">
+<div class="role">Python Developer Intern</div>
+<div class="company">GSI Helmholtz Centre</div>
+<div class="duration">Jun 2024 – Aug 2024 · Germany</div>
+<div>
+Developed 3D simulation tooling supporting scientific visualization research workflows using Python, Magpylib, Matplotlib, and Pandas.
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- NEW SECTION: LEADERSHIP EXPERIENCE -->
+
+<div class="card">
+<div class="section-title">Leadership Experience</div>
+
+<div class="leadership-grid">
+
+<div class="leadership-card">
+<div class="leadership-role">Exchange Administrator</div>
+<div class="leadership-org">IAESTE India</div>
+
+Coordinated internship nominations across 80+ countries and 7+ universities. Reviewed 150+ international applications and automated database workflows reducing manual processing effort by 40%.
+</div>
+
+
+<div class="leadership-card">
+<div class="leadership-role">ISD Coordinator</div>
+<div class="leadership-org">Rotaract Club, Manipal University Jaipur</div>
+
+Represented MUJ at IDYE Pune and strengthened inter-club partnerships through international collaboration initiatives.
+</div>
+
+</div>
+</div>
+
+
+<!-- SKILLS (unchanged) -->
+
+<div class="card">
+<div class="section-title">Skills</div>
+
+<div class="skills-wrapper">
+
+<div class="skill-card">
+<div class="skill-title">Technical Skills</div>
+
+<div class="skill-list">
+<span class="skill-tag">Python</span>
+<span class="skill-tag">AI Workflow Automation (n8n)</span>
+<span class="skill-tag">KPI-based Solution Evaluation</span>
+<span class="skill-tag">SQL</span>
+<span class="skill-tag">Workflow Mapping</span>
+<span class="skill-tag">LLM</span>
+<span class="skill-tag">JavaScript</span>
+<span class="skill-tag">JIRA</span>
+<span class="skill-tag">Notion / Confluence</span>
+<span class="skill-tag">SDLC</span>
+<span class="skill-tag">Software Testing</span>
+<span class="skill-tag">Cybersecurity</span>
+</div>
+</div>
+
+<div class="skill-card">
+<div class="skill-title">Professional Skills</div>
+
+<div class="skill-list">
+<span class="skill-tag">User-centered Problem Solving</span>
+<span class="skill-tag">Agile / Scrum Collaboration</span>
+<span class="skill-tag">Business → Technical Translation</span>
+<span class="skill-tag">Ownership Mindset</span>
+<span class="skill-tag">Adaptability</span>
+</div>
+</div>
+
+</div>
+
+
+<footer>
+AI & Automation Portfolio
+</footer>
+
+</div>
+
+</body>
+</html>
